@@ -1,0 +1,197 @@
+1) React.js: use components to code, invoke(render them)
+- Written in JSX: JavaScript Extension Syntax: It lets us write HTML in JS directly
+- JSX -> Babel(transpile) -> JS
+
+2)  Set UP:
+Create-React-App v/s Vite(faster)
+
+We used vite, vitejs.dev
+  npm creat vite@latest
+  npm install
+  npm run dev  //to start the server
+
+3) index.html -> main.jsx <- app.jsx
+      |             |
+     root   <-    renders app
+
+4) All changes are made in app.jsx, while index and main remains same
+
+5) Import-Export:
+-Import
+import Title from "./Title.jsx";
+
+-Default Export
+export default Title;
+
+-Named Export
+export { Title };
+import { Title } from "./Title.jsx";
+
+6) Writing Markup in JSX:
+1. Return a single root element
+2. Close all the tags
+3. camelCase most of the things
+
+7) React Fragment:
+Fragments let you group a list of children without adding extra nodes to the DOM.
+<> </>
+
+8) Structuring Components:
+-Jira Software:
+Project and issue tracking
+
+-Jira Product Discovery:
+Prioritization and roadmapping
+
+-Jira Align:
+Enterprise Agile planning
+
+9) Style Components:
+- App = App.css(make className same as well)
+- Product = Product.css
+Individual stylling for components
+
+import "./Product.css";
+//in Product.jsx
+
+
+--- Part 2 ---
+
+10) React Props:
+Props are the information that you pass to a JSX tag.
+
+<Product title="phone" price="30k" />
+<Product title="laptop" price={40000}/>
+export default function Product({ title, price }) {
+return
+<div className="Product">
+<h4>{title}</h4>
+<p>{price}</p>
+</div>
+};
+
+Numbers: {}
+String: ""
+
+Default: function Product({title, price = 1}){}
+Now if no price passed, it's 1
+
+
+-- Passing Arrays to Props
+features={ ["fast", "reliable"] }
+features={{ a: "fast", b: "reliable" }}
+
+
+-- Render Arrays
+a) Array of elements: 
+let options = [<li>"h"</li>];
+
+b) Map:
+const list = features.map((feature) => <li>{feature}</li>)
+
+then render: <p>{list}</p>
+
+
+-- Conditionals:
+Adding elements on the basis of some condition.
+
+{price >= 10000 ? <p>Discount : 5%</p> : null}
+{price >= 10000 && <p>Discount : 5%</p>}
+ 
+
+Activity:
+Show a Hello Message to the user in different colors.
+Pass 2 values as props: userName & textColor
+
+
+
+--- Part 3 ---
+
+Events in React
+
+State in React:
+The state is a built-in React object that is used to contain data or information about the component.
+A component's state can change over time; whenever it changes, the component re-renders.
+Variables -> immutable
+
+
+-Hooks:
+Hooks were a new addition in React 16.8.
+They let you use state and other React features without writing a class.
+
+
+-useState( ): async
+useState is a React Hook that lets you add a state variable to your component.
+
+const [state, setState] = useState(initialState);
+setState also calld updater function
+
+useState returns an array with exactly two values:
+1. The current state. During the first render, it will match the initialState you have passed.
+2. The set function that lets you update the state to a different value and trigger a re render
+
+
+-Closure:
+Closure: A closure is a feature in JavaScript where an inner function has access to the outer (enclosing)
+function's variables.
+
+*In JS, once a function completes its execution, any variables that were defined inside the function scope cease to exist.
+
+ex:
+function outer() {
+var b = 10;
+function inner {
+var a = 20;
+console.log(a+b);
+}
+return inner;
+}
+
+
+- Callback in Updater Function:
+How to change state when it depends on the current value
+
+
+Note:
+1) Re-render only when value is getting updated
+2) Pass function in intialization without parenthesis
+
+ex:
+function init() {
+console. log ("init was executed");
+return Math.random();
+}
+
+let [count, setCount] = useState(init); //initialization
+
+
+
+--- Part 6 ---
+-Forms in React:
+The standard way with Forms is to use Controlled Components. So we make React state to be the "single source of truth"
+
+In HTML, form elements such as < input>, <textarea>, and <select> typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with setState() .
+We can combine the two by making the React state be the "single source of truth". Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a
+"controlled component".
+react old docs
+
+
+- Flow:
+input change -> onchange triggered -> func handleNameChange called -> setfullName(state) -> full Name changed, whole re-rendered
+
+- Label for = htmlFor in jsx
+
+- Handling Multiple Inputs:
+We create a common handlelnputChange() for all elements.
+
+event.target.name     changed field
+event.target.value    new value of the field
+
+- useEffect():
+The Effect Hook lets you perform side effects in function components.
+
+Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effects.
+
+- Use Cases:
+API Calls - Asynchronous Operations
+
