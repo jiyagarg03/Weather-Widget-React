@@ -1,18 +1,27 @@
-# React Weather Widget
+# Weather Widget (React)
 
-A simple and responsive weather widget built using React.
+A minimal and responsive weather widget built using React, Vite, and Material UI.  
+It fetches real-time weather data from the OpenWeatherMap API and displays it in a clean, styled UI.
 
-I previously created a similar weather widget without using React. This version is built with React to demonstrate a modular, component-based structure and enhanced state management.
+This is a React version of a previous weather widget I built without React — rebuilt for better modularity, performance, and maintainability.
+
+---
 
 ## Features
 
-- Search weather by city name
-- Fetches real-time data from OpenWeatherMap API
-- Displays temperature, weather condition, and location
-- Simple and responsive UI
+- Fetches current weather data using the OpenWeatherMap API
+- Clean and modern UI built with MUI (Material UI)
+- Fully responsive layout
+- Reusable and modular React components
 
-## Built With
+---
+
+## Tech Stack
 
 - React
+- Vite
+- Material UI
 - OpenWeatherMap API
+
+
 
